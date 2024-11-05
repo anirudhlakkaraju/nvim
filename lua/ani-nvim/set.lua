@@ -10,16 +10,18 @@ vim.opt.expandtab = true
 
 vim.opt.smartindent = true
 
-vim.opt.wrap = false    -- No line wrap
+vim.opt.wrap = true
 
--- Enable line wrap only for markdown and html files
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = {"markdown", "html"},
-    callback = function()
-        vim.opt_local.wrap = true
-    end,
-})
-
+-- vim.opt.wrap = false    -- No line wrap
+--
+-- -- Enable line wrap only for markdown and html files
+-- vim.api.nvim_create_autocmd("FileType", {
+--     pattern = {"markdown", "html"},
+--     callback = function()
+--         vim.opt_local.wrap = true
+--     end,
+-- })
+--
 vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"  -- Long running undo tree
