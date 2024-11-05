@@ -1,13 +1,3 @@
--- Disable <C-t> only for Go files
--- vim.api.nvim_create_autocmd("FileType", {
---     pattern = "go",
---     callback = function()
---         vim.api.nvim_set_keymap('n', '<C-t>', '<Nop>', { noremap = true, silent = true })
---     end
--- })
--- -- Remap <C-t> to do nothing
--- vim.api.nvim_set_keymap('n', '<C-t>', '<Nop>', { noremap = true, silent = true })
-
 -- Enable automatic type information display
 vim.g.go_auto_type_info = 1
 

@@ -1,9 +1,7 @@
 local harpoon = require("harpoon")
 
--- REQUIRED
 harpoon:setup()
--- REQUIRED
---
+
 -- UNCOMMENT TO SWITCH TO TELESCOPE UI
 -- -- basic telescope configuration
 -- local conf = require("telescope.config").values

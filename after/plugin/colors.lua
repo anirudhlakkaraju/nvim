@@ -1,5 +1,5 @@
 function ColorMyVim(color)
-	color = color or "rose-pine"
+	color = color or "rose-pine"    -- Default as rose-pine
 	vim.cmd.colorscheme(color)
 
 	-- Set color to transparent
