@@ -27,7 +27,7 @@ return require('packer').startup(function(use)
     use {
         "ThePrimeagen/harpoon",
         branch = "harpoon2",
-        requires = { {"nvim-lua/plenary.nvim"} }
+        requires = { { "nvim-lua/plenary.nvim" } }
     }
     use('mbbill/undotree')
     use('tpope/vim-fugitive')
@@ -54,5 +54,9 @@ return require('packer').startup(function(use)
         }
     }
     use { 'fatih/vim-go' }
-    use {"ellisonleao/glow.nvim", config = function() require("glow").setup() end}
+    use { "ellisonleao/glow.nvim", config = function() require("glow").setup() end }
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+    }
 end)
