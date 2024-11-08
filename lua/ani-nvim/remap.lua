@@ -10,20 +10,13 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")       -- Half page jumping while keeping
 vim.keymap.set("n", "n", "nzzzv")             -- Allows / search terms to stay in the middle
 vim.keymap.set("n", "N", "Nzzzv")             -- Allows / search terms to stay in the middle
 
-vim.keymap.set("n", "<leader>vwm", function()
-	require("vim-with-me").StartVimWithMe()
-end)
-vim.keymap.set("n", "<leader>svwm", function()
-	require("vim-with-me").StopVimWithMe()
-end)
-
-vim.keymap.set("x", "<leader>p", "\"_dP") -- Deletes highlighted text to past over without overwriting the yanked content
 
 -- Copies to system clipboard instead of vim registers,
 -- so content can be pasted outside of vim using <C-v>
 vim.keymap.set("n", "<leader>y", "\"+y")
 vim.keymap.set("v", "<leader>y", "\"+y")
 vim.keymap.set("n", "<leader>Y", "\"+Y")
+vim.keymap.set("x", "<leader>p", "\"_dP") -- Deletes highlighted text to past over without overwriting the yanked content
 
 -- Deleting to void register
 vim.keymap.set("n", "<leader>d", "\"_d")
@@ -47,3 +40,6 @@ vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
 -- Replaces the current word under cursor
 vim.keymap.set("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
+
+-- Exit inbuilt terminal. Might not work for all terminal emulators
+vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
