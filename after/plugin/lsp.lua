@@ -5,54 +5,85 @@ vim.opt.signcolumn = 'yes'
 -- This should be executed before you configure any language server
 local lspconfig_defaults = require('lspconfig').util.default_config
 lspconfig_defaults.capabilities = vim.tbl_deep_extend(
-  'force',
-  lspconfig_defaults.capabilities,
-  require('cmp_nvim_lsp').default_capabilities()
+    'force',
+    lspconfig_defaults.capabilities,
+    require('cmp_nvim_lsp').default_capabilities()
 )
 
 -- This is where you enable features that only work
 -- if there is a language server active in the file
 vim.api.nvim_create_autocmd('LspAttach', {
-  desc = 'LSP actions',
-  callback = function(event)
-    local opts = {buffer = event.buf}
+    desc = 'LSP actions',
+    callback = function(event)
 
-    vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', opts)
-    vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>', opts)
-    vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>', opts)
-    vim.keymap.set('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>', opts)
-    vim.keymap.set('n', 'go', '<cmd>lua vim.lsp.buf.type_definition()<cr>', opts)
-    vim.keymap.set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>', opts)
-    vim.keymap.set('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>', opts)
-    vim.keymap.set('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
-    vim.keymap.set({'n', 'x'}, '<F3>', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
-    vim.keymap.set('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
-  end,
-})
+        local map = function(keys, func, desc, mode)
+            mode = mode or 'n'
+            vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
+        end
 
--- You'll find a list of language servers here:
--- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
--- These are example language servers. 
-require('lspconfig').gleam.setup({})
-require('lspconfig').ocamllsp.setup({})
+        -- Keybindings + telesscope integration
+        local telescope = require('telescope.builtin')
+        map('gd', telescope.lsp_definitions, '[G]oto [D]efinition')
+        map('gr', telescope.lsp_references, '[G]oto [R]eferences')
+        map('gI', telescope.lsp_implementations, '[G]oto [I]mplementation')
+        map('<leader>D', telescope.lsp_type_definitions, 'Type [D]efinition')
+        map('<leader>ds', telescope.lsp_document_symbols, '[D]ocument [S]ymbols')
+        map('<leader>ws', telescope.lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
 
-local cmp = require('cmp')
+        map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
 
-cmp.setup({
-  sources = {
-    {name = 'nvim_lsp'},
-  },
-  snippet = {
-    expand = function(args)
-      -- You need Neovim v0.10 to use vim.snippet
-      vim.snippet.expand(args.body)
+        map('K', vim.lsp.buf.hover, 'Hover Documentation')
+
+        -- Hover to highlight references
+        local client = vim.lsp.get_client_by_id(event.data.client_id)
+        if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
+            local highlight_augroup = vim.api.nvim_create_augroup('kickstart-lsp-highlight', { clear = false })
+
+            vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
+                buffer = event.buf,
+                group = highlight_augroup,
+                callback = vim.lsp.buf.document_highlight,
+            })
+
+            vim.api.nvim_create_autocmd({ 'CursorMoved', 'CursorMovedI' }, {
+                buffer = event.buf,
+                group = highlight_augroup,
+                callback = vim.lsp.buf.clear_references,
+            })
+
+            vim.api.nvim_create_autocmd('LspDetach', {
+                group = vim.api.nvim_create_augroup('kickstart-lsp-detach', { clear = true }),
+                callback = function(event2)
+                    vim.lsp.buf.clear_references()
+                    vim.api.nvim_clear_autocmds { group = 'kickstart-lsp-highlight', buffer = event2.buf }
+                end,
+            })
+        end
     end,
-  },
-  mapping = cmp.mapping.preset.insert({}),
 })
 
+--- Add Language Servers
+require("lspconfig").gopls.setup({})
+require("lspconfig").lua_ls.setup({
+    settings = {
+        diagnostics = {
+            globals = { 'vim' },
+            disable = { 'missing-fields' }
+        }
+    }
+})
 
-require "lspconfig".gopls.setup {
-  on_attach = on_attach,
-}
-
+--- Completion Setup
+local cmp = require('cmp')
+cmp.setup({
+    sources = {
+        { name = 'nvim_lsp' },
+    },
+    snippet = {
+        expand = function(args)
+            -- You need Neovim v0.10 to use vim.snippet
+            vim.snippet.expand(args.body)
+        end,
+    },
+    mapping = cmp.mapping.preset.insert({}),
+})
