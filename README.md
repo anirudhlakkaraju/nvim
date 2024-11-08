@@ -4,16 +4,18 @@ This repository contains my personal NeoVim config.
 
 ## Plugins 
 
-- **Plugin Management**: [Packer.nvim](https://github.com/wbthomason/packer.nvim) for plugin management.
-- **Color Scheme**: [Rose-pine](https://github.com/rose-pine/neovim) for a beautiful color palette.
-- **Git Integration**: [Fugitive](https://github.com/tpope/vim-fugitive) for seamless Git operations within Neovim.
-- **LSP Support**: [Lsp-zero](https://github.com/VonHeikemen/lsp-zero.nvim) to support for multiple languages. My main languages currently being - `golang`, `python`, `html`, `css`, `javascript`.
-- **Project Navigation**: [Telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) for enhanced file searching and browsing.
-- **File Switching**: [Harpoon](https://github.com/ThePrimeagen/harpoon) for blazingly fast file switching.
-- **Syntax Highlighting**: [Nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) for improved syntax highlighting and code understanding.
-- **Go Support**: [Vim-go](https://github.com/fatih/vim-go) for all the formatting, auto-imports and so many other useful Golang features.
-- **Undo Management**: Long term undo history retention using [undotree](https://github.com/mbbill/undotree).
-- **Markdown Preview**: [Glow.nvim](https://github.com/ellisonleao/glow.nvim) for quick markdown previews, I love note taking with vim.
+- [Packer.nvim](https://github.com/wbthomason/packer.nvim)
+- [Rose-pine](https://github.com/rose-pine/neovim)
+- [Fugitive](https://github.com/tpope/vim-fugitive)
+- [Lsp-zero](https://github.com/VonHeikemen/lsp-zero.nvim) - My main languages currently being - `golang`, `python`, `html`, `css`, `javascript`.
+- [Telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
+- [Harpoon](https://github.com/ThePrimeagen/harpoon)
+- [Nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
+- [Vim-go](https://github.com/fatih/vim-go)
+- [Undotree](https://github.com/mbbill/undotree)
+- [Glow.nvim](https://github.com/ellisonleao/glow.nvim)
+- [Lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
+- [Treesitter-context](https://github.com/nvim-treesitter/nvim-treesitter-context)
 
 ## Setup Instructions
 
