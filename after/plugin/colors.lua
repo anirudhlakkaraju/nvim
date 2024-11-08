@@ -1,4 +1,4 @@
-function ColorMyVim(color)
+function ColorMyNvim(color)
     color = color or "rose-pine"    -- Default as rose-pine
 	vim.cmd.colorscheme(color)
 
@@ -7,4 +7,4 @@ function ColorMyVim(color)
 	vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 
 end
-ColorMyVim()
+ColorMyNvim()
