@@ -60,4 +60,8 @@ return require('packer').startup(function(use)
         requires = { 'nvim-tree/nvim-web-devicons', opt = true }
     }
     use { 'nvim-treesitter/nvim-treesitter-context' }
+    use {
+        'echasnovski/mini.nvim',
+        branch = 'main',
+    }
 end)
