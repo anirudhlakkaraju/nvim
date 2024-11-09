@@ -17,6 +17,7 @@ This repository contains my personal NeoVim config.
 - [Lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
 - [Treesitter-context](https://github.com/nvim-treesitter/nvim-treesitter-context)
 - [Mini](https://github.com/echasnovski/mini.nvim?tab=readme-ov-file) - mini.ai, mini.surround
+- [Vim-Tmux-Navigator](https://github.com/christoomey/vim-tmux-navigator)
 
 ## Setup Instructions
 

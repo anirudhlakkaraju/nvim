@@ -12,4 +12,3 @@ require('mini.ai').setup { n_lines = 500 }
 -- - sd'   - [S]urround [D]elete [']quotes
 -- - sr)'  - [S]urround [R]eplace [)] [']
 require('mini.surround').setup()
-
