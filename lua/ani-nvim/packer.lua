@@ -64,4 +64,8 @@ return require('packer').startup(function(use)
         'echasnovski/mini.nvim',
         branch = 'main',
     }
+    use {
+        'christoomey/vim-tmux-navigator',
+        lazy = false,
+    }
 end)
