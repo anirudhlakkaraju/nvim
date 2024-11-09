@@ -12,9 +12,9 @@ vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iag
 vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
 
 -- Open Telescope for Nvim config dir
-vim.keymap.set('n', '<leader>sc', function()
+vim.keymap.set('n', '<leader>nc', function()
     builtin.find_files { cwd = vim.fn.stdpath('config') }
-end, { desc = '[S]earch Neovim [C]onfig Files' })
+end, { desc = 'Search [N]eovim [C]onfig Files' })
 
 -- Open Telescope for notes dir
 vim.keymap.set('n', '<leader>sn', function()
