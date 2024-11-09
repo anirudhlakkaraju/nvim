@@ -16,6 +16,7 @@ This repository contains my personal NeoVim config.
 - [Glow.nvim](https://github.com/ellisonleao/glow.nvim)
 - [Lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
 - [Treesitter-context](https://github.com/nvim-treesitter/nvim-treesitter-context)
+- [Mini](https://github.com/echasnovski/mini.nvim?tab=readme-ov-file) - mini.ai, mini.surround
 
 ## Setup Instructions
 
