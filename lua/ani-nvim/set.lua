@@ -1,4 +1,4 @@
-vim.opt.guicursor = ""  -- Fat cursor
+vim.opt.guicursor = "" -- Fat cursor
 
 vim.opt.nu = true
 vim.opt.relativenumber = true
@@ -24,7 +24,7 @@ vim.opt.wrap = true
 --
 vim.opt.swapfile = false
 vim.opt.backup = false
-vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"  -- Long running undo tree
+vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir" -- Long running undo tree
 vim.opt.undofile = true
 
 vim.opt.hlsearch = false
@@ -32,7 +32,7 @@ vim.opt.incsearch = true
 
 vim.opt.termguicolors = true
 
-vim.opt.scrolloff = 12   -- Never go less than 12 lines on scroll
+vim.opt.scrolloff = 12 -- Never go less than 12 lines on scroll
 vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 
@@ -41,3 +41,10 @@ vim.opt.updatetime = 50
 vim.opt.colorcolumn = "80"
 
 vim.g.mapleader = " "
+
+-- Enable mouse mode, can be useful for resizing splits
+vim.opt.mouse = 'a'
+
+-- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
