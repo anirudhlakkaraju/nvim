@@ -69,4 +69,5 @@ return require('packer').startup(function(use)
         lazy = false,
     }
     use { 'github/copilot.vim' }
+    use { 'lewis6991/gitsigns.nvim' }
 end)
