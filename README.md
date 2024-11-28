@@ -7,6 +7,7 @@ This repository contains my personal NeoVim config.
 - [Packer.nvim](https://github.com/wbthomason/packer.nvim)
 - [Rose-pine](https://github.com/rose-pine/neovim)
 - [Fugitive](https://github.com/tpope/vim-fugitive)
+- [Gitsigns](https://github.com/lewis6991/gitsigns.nvim)
 - [Lsp-zero](https://github.com/VonHeikemen/lsp-zero.nvim) - My main languages currently being - `golang`, `python`, `html`, `css`, `javascript`.
 - [Telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
 - [Harpoon](https://github.com/ThePrimeagen/harpoon)
@@ -54,7 +55,7 @@ This repository contains my personal NeoVim config.
 
 ## Acknowledgments
 
-This configuration is heavily inspired by [ThePrimeagen](https://github.com/ThePrimeagen) and his comprehensive 0 to LSP tutorial available on YouTube: [0 to LSP](https://youtu.be/w7i4amO_zaE?si=lDCMgt7XvF45A2hs).
+This configuration is heavily inspired by [ThePrimeagen's](https://github.com/ThePrimeagen) setup: [0 to LSP](https://youtu.be/w7i4amO_zaE?si=lDCMgt7XvF45A2hs) and also [TJ Devries'](https://github.com/tjdevries) Nvim [Kickstart](https://github.com/nvim-lua/kickstart.nvim)
 
 ## License
 
