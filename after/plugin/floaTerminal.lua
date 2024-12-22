@@ -41,23 +41,13 @@ local function create_floating_window(opts)
     return { buf = buf, win = win }
 end
 
-local function is_tmux_active()
-    return os.getenv("TMUX") ~= nil
-end
-
 local toggle_terminal = function()
     if not vim.api.nvim_win_is_valid(state.floating.win) then
         state.floating = create_floating_window { buf = state.floating.buf }
         if vim.bo[state.floating.buf].buftype ~= "terminal" then
             vim.cmd.terminal()
-
-            -- Wait for terminal to initialize and then launch Tmux if active
-            vim.defer_fn(function()
-                if is_tmux_active() then
-                    vim.api.nvim_chan_send(vim.b.terminal_job_id, "tmux\n")
-                end
-            end, 10)
         end
+        vim.cmd("startinsert")
     else
         vim.api.nvim_win_hide(state.floating.win)
     end
