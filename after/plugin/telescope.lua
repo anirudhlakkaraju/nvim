@@ -2,6 +2,7 @@ local builtin = require('telescope.builtin')
 
 -- Insanely useful
 vim.keymap.set('n', '<leader>pf', builtin.find_files, { desc = 'Find [P]roject [F]iles' })
+vim.keymap.set('n', '<C-p>', builtin.git_files, { desc = 'Find Git Files' })
 vim.keymap.set('n', '<leader>ps', builtin.live_grep, { desc = 'Find [S]tring in [P]roject' })
 vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recently Opened Files ("." for repeat)' })
 vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
