@@ -1,6 +1,8 @@
 vim.g.mapleader = " " -- Leader is Space key
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex, { desc = '[P]roject [V]iewer (netrw)' })
 
+vim.keymap.set("n", "K", "<cmd>lua vim.diagnostic.open_float()<CR>", { desc = 'Hover Diagnostics' })
+
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = '[J] Move highlighted text down' })
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = '[K] Move highlighted text up' })
 
