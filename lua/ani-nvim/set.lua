@@ -41,7 +41,7 @@ vim.opt.updatetime = 50
 vim.g.mapleader = " "
 
 -- Enable mouse mode, can be useful for resizing splits
-vim.opt.mouse = 'a'
+vim.opt.mouse = "a"
 
 -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
 vim.opt.ignorecase = true
