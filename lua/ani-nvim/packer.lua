@@ -72,8 +72,9 @@ return require('packer').startup(function(use)
     use { 'lewis6991/gitsigns.nvim' }
     use { 'mfussenegger/nvim-dap' }
     use { 'leoluz/nvim-dap-go' }
-    use { 
-        'stevearc/oil.nvim', 
+    use {
+        'stevearc/oil.nvim',
         requires = { 'nvim-tree/nvim-web-devicons', opt = true }
     }
+    use { 'stevearc/conform.nvim' }
 end)
