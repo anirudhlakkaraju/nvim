@@ -79,6 +79,10 @@ return require("packer").startup(function(use)
 	use({ "mfussenegger/nvim-dap" })
 	use({ "leoluz/nvim-dap-go" })
 	use({
+		"rcarriga/nvim-dap-ui",
+		requires = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
+	})
+	use({
 		"stevearc/oil.nvim",
 		requires = { "nvim-tree/nvim-web-devicons", opt = true },
 	})
