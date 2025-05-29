@@ -75,6 +75,7 @@ require("lspconfig").lua_ls.setup({
 		},
 	},
 })
+require("lspconfig").ts_ls.setup({})
 
 --- Completion Setup
 local cmp = require("cmp")
