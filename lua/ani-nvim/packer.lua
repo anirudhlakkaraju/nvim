@@ -56,9 +56,14 @@ return require("packer").startup(function(use)
 	})
 	use({ "fatih/vim-go" })
 	use({
-		"ellisonleao/glow.nvim",
+		"MeanderingProgrammer/render-markdown.nvim",
+		after = { "nvim-treesitter" },
+		requires = {
+			{ "echasnovski/mini.nvim", opt = true },
+			{ "nvim-tree/nvim-web-devicons", opt = true },
+		},
 		config = function()
-			require("glow").setup()
+			require("render-markdown").setup({})
 		end,
 	})
 	use({
