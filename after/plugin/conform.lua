@@ -2,12 +2,26 @@ require("conform").setup({
 	formatters_by_ft = {
 		-- Conform will run multiple formatters sequentially
 		lua = { "stylua" },
-		python = { "isort", "black" },
+		python = { "isort", "ruff_format" },
+
+		css = { "prettier" },
+		html = { "prettier" },
+
+		javascript = { "prettier" },
+		javascriptreact = { "prettier" },
+		json = { "prettier" },
+		jsonc = { "prettier" },
+		jsx = { "prettier" },
+		markdown = { "prettier" },
+		react = { "prettier" },
+		yaml = { "prettier" },
 	},
+
 	format_on_save = {
 		-- These options will be passed to conform.format()
-		timeout_ms = 500,
-		lsp_format = "fallback",
+		async = false,
+		timeout_ms = 50000,
+		lsp_fallback = true,
 	},
 })
 
