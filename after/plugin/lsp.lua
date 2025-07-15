@@ -59,10 +59,17 @@ vim.api.nvim_create_autocmd("LspAttach", {
 })
 
 --- Add Language Servers
+
+local venv_path = vim.fn.trim(vim.fn.system("poetry env info --path"))
+local python_path = vim.fn.system("which python")
+
+if venv_path ~= "" then
+	python_path = venv_path .. "/bin/python"
+end
 require("lspconfig").pyright.setup({
 	settings = {
 		python = {
-			pythonPath = vim.fn.system("which python"),
+			pythonPath = python_path,
 		},
 	},
 })
