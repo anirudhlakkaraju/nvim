@@ -45,6 +45,7 @@ vim.opt.termguicolors = true
 
 vim.opt.scrolloff = 12 -- Never go less than 12 lines on scroll
 vim.opt.signcolumn = "yes"
+vim.opt.colorcolumn = "80"
 vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
