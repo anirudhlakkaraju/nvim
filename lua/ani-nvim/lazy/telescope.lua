@@ -39,6 +39,7 @@ return {
         end, { desc = "Search [N]eovim [C]onfig Files" })
 
         -- Open Telescope for notes dir
+        -- Customize: change the path to your notes directory
         vim.keymap.set("n", "<leader>sn", function()
             builtin.find_files({
                 cwd = vim.fn.expand("~") .. "/OneDrive/Documents/notes",
